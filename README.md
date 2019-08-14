@@ -56,6 +56,8 @@ Things you may want to cover:
 - has_many :group, through::group_users
 
 ## messagesテーブル
+|Column|Type|Options|
+|------|----|-------|
 |body|text|
 |image|string|
 |group_id|interger|null: false, foreign_key: true|
