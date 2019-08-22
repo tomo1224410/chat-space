@@ -1,0 +1,58 @@
+.contents-left {
+  background-color: #2f3e51;
+  width: 300px;
+  height: 100vh;
+  float: left;
+  .header {
+    background-color: #253141;
+    align-items: center;
+    padding: 0 20px;
+    height: 100px;
+    &__name {
+      color: $white;
+      padding-top: 35px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    &__icon {
+      display: block;
+      float: right;
+      
+      .edit {
+        color: $white;
+      }
+      .cog {
+        color: $white;
+      }
+    }
+  }
+  .groups {
+    padding: 0 20px;
+    overflow: scroll;
+    height: calc(100vh - 100px);
+    .group {
+      padding-top: 20px;
+      &__name {
+        color: $white;
+        font-size: 15px;
+        padding-bottom: 5px;
+      }
+      &__comment {
+        color: $white;
+        font-size: 11px;
+      }
+    }
+    .second-group {
+      padding-top: 40px;
+      &__name {
+        color: $white;
+        font-size: 15px;
+        padding-bottom: 5px;
+      }
+      &__comment {
+        color: $white;
+        font-size: 11px;
+      }
+    }
+  }
+}
