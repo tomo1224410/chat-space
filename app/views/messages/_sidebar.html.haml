@@ -1,20 +1,17 @@
 .sidebar
   .header
-    .header__name
-      username
+    %h3.header__name
+      = current_user.name
       .header__icon
-        = link_to do
+        = link_to new_group_path do
           = fa_icon 'edit',class: "edit"
-        = link_to do
+        = link_to edit_user_path(current_user) do
           = fa_icon 'cog',class: "cog"
   .groups
-    .group
-      .group__name
-        sample-group
-      .group__comment
-        hello world!
-    .second-group
-      .second-group__name
-        sample-group2
-      .second-group__comment
-        hello world!!
+    - current_user.groups.each do |group|
+      .group
+        = link_to group_messages_path(group) do
+          .group__name
+            = group.name
+          .group__comment
+            メッセージはまだありません。
