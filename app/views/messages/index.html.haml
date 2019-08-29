@@ -1,4 +1,23 @@
 .contents-left
   = render 'sidebar'
 .contents-right
-  = render 'messages'
+  .messages
+    .header
+      .header-block
+        .header-block__group
+          = @group.name
+        .header-block__member
+          - @group.group_users.each do |group_user|
+            = group_user.user.name
+      .header-block__btn
+        Edit
+    .chat
+      = render @messages
+      .form
+        = form_for [@group, @message] do |f|
+          = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+          .form__mask
+            = f.label :image, class: 'form__mask__image' do
+              = fa_icon 'picture-o', class: 'icon'
+              = f.file_field :image, class: 'hidden'
+          = f.submit 'Send', class: 'form__submit'
