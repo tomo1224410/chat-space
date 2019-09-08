@@ -13,7 +13,7 @@
                   <p class="lower-message__content">
                     ${message.content}
                   </p>
-                  <img src=${message.image}>
+                  ${image}
                 </div>`
     return html;
    }
@@ -34,7 +34,7 @@
          $('.chat').append(html);
          $('.form__message').val('');
          $('.chat').animate({scrollTop: $('.chat')[0].scrollHeight}, 'fast');
-         $('form').reset();
+         $('form')[0].reset();
       })
       .fail(function(){
         alert('error');
