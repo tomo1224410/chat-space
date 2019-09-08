@@ -5,7 +5,7 @@
       .header__icon
         = link_to new_group_path do
           = fa_icon 'edit',class: "edit"
-        = link_to edit_user_path(current_user) do
+        = link_to edit_users_path(current_user) do
           = fa_icon 'cog',class: "cog"
   .groups
     - current_user.groups.each do |group|
