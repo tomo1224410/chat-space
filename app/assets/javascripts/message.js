@@ -32,7 +32,6 @@
        .done(function(data){
          var html = buildHTML(data);
          $('.chat').append(html);
-         $('.form__message').val('');
          $('.chat').animate({scrollTop: $('.chat')[0].scrollHeight}, 'fast');
          $('form')[0].reset();
       })
