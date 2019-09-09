@@ -1,10 +1,11 @@
-.chat-block
-  .chat-block__name
-    = message.user.name
-  .chat-block__time
-    = message.created_at.strftime("%Y/%m/%d %H:%M")
-.chat-text
-  - if message.content.present?
-    %p.lower-message__content
-      = message.content
-  = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
+.chat{data: {messageid: "#{message.id}"}}
+  .chat-block
+    .chat-block__name
+      = message.user.name
+    .chat-block__time
+      = message.created_at.strftime("%Y/%m/%d %H:%M")
+  .chat-text
+    - if message.content.present?
+      %p.lower-message__content
+        = message.content
+    = image_tag message.image.url, class: 'lower-message__image' if message.image.present?

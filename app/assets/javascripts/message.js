@@ -1,19 +1,21 @@
  $(function(){ 
    function buildHTML(message){
     var image = message.image ? `<img src=${message.image}>` :"";
-    var html = `<div class="chat-block">
-                  <div class="chat-block__name">
-                    ${message.user_name}
+    var html = `<div class="chat">
+                  <div class="chat-block">
+                    <div class="chat-block__name">
+                      ${message.user_name}
+                    </div>
+                    <div class="chat-block__time">
+                      ${message.date}
+                    </div>
                   </div>
-                  <div class="chat-block__time">
-                    ${message.date}
+                  <div class="chat-text">
+                    <p class="lower-message__content">
+                      ${message.content}
+                    </p>
+                    ${image}
                   </div>
-                </div>
-                <div class="chat-text">
-                  <p class="lower-message__content">
-                    ${message.content}
-                  </p>
-                  ${image}
                 </div>`
     return html;
    }
@@ -31,8 +33,8 @@
       })
        .done(function(data){
          var html = buildHTML(data);
-         $('.chat').append(html);
-         $('.chat').animate({scrollTop: $('.chat')[0].scrollHeight}, 'fast');
+         $('.chats').append(html);
+         $('.chats').animate({scrollTop: $('.chats')[0].scrollHeight}, 'fast');
          $('form')[0].reset();
       })
       .fail(function(){
