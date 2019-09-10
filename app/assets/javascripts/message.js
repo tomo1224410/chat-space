@@ -1,24 +1,24 @@
- $(function(){ 
-   function buildHTML(message){
-    var image = message.image ? `<img src=${message.image}>` :"";
-    var html = `<div class="chat">
-                  <div class="chat-block">
-                    <div class="chat-block__name">
-                      ${message.user_name}
-                    </div>
-                    <div class="chat-block__time">
-                      ${message.date}
-                    </div>
+$(function(){ 
+  function buildHTML(message){
+  var image = message.image ? `<img src=${message.image}>` :"";
+  var html = `<div class="chat" data-messageid="${message.id}">
+                <div class="chat-block">
+                  <div class="chat-block__name">
+                    ${message.user_name}
                   </div>
-                  <div class="chat-text">
-                    <p class="lower-message__content">
-                      ${message.content}
-                    </p>
-                    ${image}
+                  <div class="chat-block__time">
+                    ${message.date}
                   </div>
-                </div>`
-    return html;
-   }
+                </div>
+                <div class="chat-text">
+                  <p class="lower-message__content">
+                    ${message.content}
+                  </p>
+                  ${image}
+                </div>
+              </div>`
+  return html;
+  }
   $(".new_message").on('submit', function(e){
       e.preventDefault();
       var formData = new FormData(this);
@@ -42,4 +42,19 @@
       });
       return false;
   });
+  var reloadMessages = function() {
+    last_message_id = $('.chat:last').data('id');
+    $.ajax({
+      url: "/api/messages",
+      type: 'get',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages) {
+      console.log('success');
+    })
+    .fail(function() {
+      console.log('error');
+    });
+  };
 });
