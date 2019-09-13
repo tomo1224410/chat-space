@@ -34,28 +34,30 @@
         }
       }
   }
-  .chat {
+  .chats {
     padding: 46px 40px;
     overflow: scroll;
     height: calc(100vh - 282px);
-    .chat-block {
-      padding-bottom: 10px;
-      display: flex;
-      &__name {
-        font-size: 16px;
-        font-weight: bold;
+    .chat {
+      .chat-block {
+        padding-bottom: 10px;
+        display: flex;
+        &__name {
+          font-size: 16px;
+          font-weight: bold;
+          color: $fontcolor;
+        }
+        &__time {
+          font-size: 12px;
+          color: $sub-fontcolor;
+          margin-left: 10px;
+        }
+      }
+      .chat-text {
+        font-size: 14px;
         color: $fontcolor;
+        margin-bottom: 10px;
       }
-      &__time {
-        font-size: 12px;
-        color: $sub-fontcolor;
-        margin-left: 10px;
-      }
-    }
-    .chat-text {
-      font-size: 14px;
-      color: $fontcolor;
-      margin-bottom: 10px;
     }
   }
   .form {
