@@ -26,14 +26,13 @@
 
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
-      %label.chat-group-form__label{for: "chat_group_チャットメンバー"} チャットメンバー
+      = f.label "チャットメンバー", class: 'chat-group-form__label'
     .chat-group-form__field--right
-     
-    #chat-group-users
-      #chat-group-user-22.chat-group-user.clearfix
-        %input{name: "chat_group[user_ids][]", type: "hidden", value: "22"}
-        %p.chat-group-user__name
-          = current_user.name
+      #user-chat-menber
+        .chat-group-user.clearfix{'data-id': current_user.id}
+          = hidden_field_tag 'group[user_ids][]', current_user.id
+          %p.chat-group-user__name
+            = current_user.name
 
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
