@@ -7,10 +7,11 @@
         .header-block__group
           = @group.name
         .header-block__member
+          Members:
           - @group.group_users.each do |group_user|
             = group_user.user.name
       .header-block__btn
-        Edit
+        = link_to "Edit",edit_group_path(@group)
     .chats
       = render @messages
     .form

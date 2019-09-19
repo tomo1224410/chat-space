@@ -69,6 +69,7 @@ gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
+gem 'addressable', require: 'addressable/uri'
 
 group :production do
   gem 'unicorn', '5.4.1'

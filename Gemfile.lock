@@ -294,6 +294,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  addressable
   byebug
   capistrano
   capistrano-bundler
